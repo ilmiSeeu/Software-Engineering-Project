@@ -69,3 +69,30 @@ class Narcotic extends Drug{
     }
 
 }
+
+//------------------------------------------------Addictive------------------------------------------------
+
+class Addictive extends Drug{
+
+    private int strength;
+
+    public Addictive(String name, int price, double active_ingredient, int strength){
+        super(name, price, active_ingredient);
+        this.strength = strength;
+    }
+
+    public int getStrength(){
+        return strength;
+    }
+
+    public String toString(){
+        return ("DrugID: " + idd + "\n" +
+                "Class: Narcotic" + "\n" +
+                "name: " + name + "\n" +
+                "price: " + price + "mkd." + "\n" +
+                "active_ingredient: " + active_ingredient + "mg." + "\n" +
+                "strength: " + strength);
+    }
+
+
+}
