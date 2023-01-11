@@ -22,7 +22,7 @@ public abstract class Drug {
             return "Narcotic";
         }else{return "Regular";}
     }
-    
+
     public String getName() {
         return name;
     }
@@ -41,7 +41,7 @@ public abstract class Drug {
 
     @Override
     public abstract String toString();
-    
+
 }
 
 //------------------------------------------------Narcotic------------------------------------------------
@@ -94,5 +94,26 @@ class Addictive extends Drug{
                 "strength: " + strength);
     }
 
+
+}
+
+//------------------------------------------------Regular------------------------------------------------
+
+class Regular extends Drug{
+
+    public Regular(String name, int price, double active_ingredient){
+        super(name, price, active_ingredient);
+
+    }
+
+
+    public String toString(){
+        return ("DrugID: " + idd + "\n" +
+                "Class: Narcotic" + "\n" +
+                "name: " + name + "\n" +
+                "price: " + price + "mkd." + "\n" +
+                "active_ingredient: " + active_ingredient + "mg." + "\n"
+                );
+    }
 
 }
