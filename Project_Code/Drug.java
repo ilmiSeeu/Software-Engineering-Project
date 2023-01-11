@@ -43,3 +43,29 @@ public abstract class Drug {
     public abstract String toString();
     
 }
+
+//------------------------------------------------Narcotic------------------------------------------------
+
+class Narcotic extends Drug{
+
+    private int strength;
+
+    public Narcotic(String name, int price, double active_ingredient, int strength){
+        super(name, price, active_ingredient);
+        this.strength = strength;
+    }
+
+    public int getStrength(){
+        return strength;
+    }
+
+    public String toString(){
+        return ("DrugID: " + idd + "\n" +
+                "Class: Narcotic" + "\n" +
+                "name: " + name + "\n" +
+                "price: " + price + "mkd." + "\n" +
+                "active_ingredient: " + active_ingredient + "mg." + "\n" +
+                "strength: " + strength);
+    }
+
+}
