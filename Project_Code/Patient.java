@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-=======
+
 import java.util.*;
 
->>>>>>> prescription
+
 public class Patient {
 
     private String name;
@@ -10,7 +9,7 @@ public class Patient {
     private static int counter;
     private int patientID;
 
-<<<<<<< HEAD
+
     public Patient(String name, String birthDate){
         this.name = name;
         this.birthDate = birthDate;
@@ -38,9 +37,9 @@ public class Patient {
                "ID: " + patientID);
    }
 
-=======
+
     private List<Prescriptions> prescriptions;
-    
+
     public Patient(String name, String birthDate){
          this.name = name;
          this.birthDate = birthDate;
@@ -65,9 +64,8 @@ public class Patient {
 
     public String toString(){
          return ("Name: " + name  + "\n" +
-                "BirthDate: " + birthDate + "\n" + 
+                "BirthDate: " + birthDate + "\n" +
                 "ID: " + patientID);
     }
-    
->>>>>>> prescription
+
 }
