@@ -1,6 +1,4 @@
-
 import java.util.*;
-
 
 public class Patient {
 
@@ -8,37 +6,8 @@ public class Patient {
     private String birthDate;
     private static int counter;
     private int patientID;
-
-
-    public Patient(String name, String birthDate){
-        this.name = name;
-        this.birthDate = birthDate;
-        patientID = counter++;
-
-
-   }
-
-   public String getName(){
-        return name;
-   }
-
-   public String getBirthDATE(){
-        return birthDate;
-   }
-
-   public int getPatientID(){
-        return patientID;
-   }
-
-
-   public String toString(){
-        return ("Name: " + name  + "\n" +
-               "BirthDate: " + birthDate + "\n" +
-               "ID: " + patientID);
-   }
-
-
     private List<Prescriptions> prescriptions;
+
 
     public Patient(String name, String birthDate){
          this.name = name;
@@ -60,6 +29,14 @@ public class Patient {
          return patientID;
     }
 
+    public List<Prescriptions> getPatientPrescriptions(){
+         return prescriptions;
+    }
+
+
+    public void addPrescription(Prescriptions r){
+        prescriptions.add(r);
+    }
 
 
     public String toString(){
