@@ -1,13 +1,15 @@
 public abstract class Prescriptions {
-  
+
   protected Drug drug;
+  protected Doctor doctor;
   public static int prescriptionID;
   protected int id_count;
   protected int reit;
   protected Patient patient;
-    
-  public Prescriptions(Drug drug, Patient patient, int reit){
+
+  public Prescriptions(Drug drug, Doctor doctor, Patient patient, int reit){
     this.drug = drug;
+    this.doctor = doctor;
     this.patient = patient;
     this.reit = reit;
     prescriptionID++;
@@ -24,6 +26,10 @@ public abstract class Prescriptions {
 
   public Drug getDrug(){
     return drug;
+  }
+
+  public Doctor getDoctor(){
+    return doctor;
   }
 
   public Patient getPatient(){
@@ -61,11 +67,10 @@ public abstract class Prescriptions {
 
 
 class WhitePrescriptions extends Prescriptions{
-   
-  public WhitePrescriptions(Drug drug, Patient patient, int reit) {
-      super(drug, patient, reit);
-  }
 
+  public WhitePrescriptions(Drug drug, Doctor doctor, Patient patient, int reit) {
+      super(drug, doctor, patient, reit);
+  }
   protected String color(){
     return "The prescription is white";
   }
@@ -75,11 +80,12 @@ class WhitePrescriptions extends Prescriptions{
     return price;
   }
 
-  @Override 
+  @Override
   public String toString(){
     return ("Prescription ID: " + prescriptionID + "\n" +
            "Color of prescription: " + color() + "\n"  +
            "Price: " + priceToPay() + "\n" +
+           "Doctor: " + doctor + "\n" +
            "Patient: " + patient + "\n" +
            "Re-it: " + reit);
   }
@@ -94,19 +100,20 @@ class MilitaryPrescriptions extends WhitePrescriptions{
   protected static int reit = 3;
 
 
-  public MilitaryPrescriptions(Drug drug, Patient patient) {
-      super(drug, patient, reit);
+  public MilitaryPrescriptions(Drug drug, Doctor doctor, Patient patient) {
+      super(drug, doctor, patient, reit);
   }
 
   protected int priceToPay(){
     return 0;
   }
 
-  @Override 
+  @Override
   public String toString(){
     return ("Prescription ID: " + prescriptionID + "\n" +
            "Color of prescription: " + color() + "\n"  +
            "Price(100% discount): " + priceToPay() + "\n" +
+           "Doctor: " + doctor + "\n" +
            "Patient: " + patient + "\n" +
            "Re-it: " + reit);
   }
@@ -118,11 +125,11 @@ class MilitaryPrescriptions extends WhitePrescriptions{
 
 class pPrescription extends WhitePrescriptions{
 
-  public pPrescription(Drug drug, Patient patient, int reit) {
-      super(drug, patient, reit);
+  public pPrescription(Drug drug, Doctor doctor, Patient patient, int reit) {
+      super(drug, doctor, patient, reit);
   }
 
- 
+
   //if price more that 108 get 108 discount
   protected int priceToPay(){
     int sum = (getDrug().getPrice());
@@ -133,11 +140,12 @@ class pPrescription extends WhitePrescriptions{
     }
   }
 
-  @Override 
+  @Override
   public String toString(){
       return ("Prescription ID: " + prescriptionID + "\n" +
              "Color of prescription: " + color() + "\n"  +
              "Price((-108mkd): " + priceToPay() + "\n" +
+             "Doctor: " + doctor + "\n" +
              "Patient: " + patient + "\n" +
              "Re-it: " + reit);
     }
@@ -149,24 +157,25 @@ class pPrescription extends WhitePrescriptions{
 
 class BluePrescriptions extends Prescriptions{
 
-  public BluePrescriptions(Drug drug, Patient patient, int reit) {
-      super(drug,  patient, reit);
+  public BluePrescriptions(Drug drug, Doctor doctor, Patient patient, int reit) {
+      super(drug, doctor, patient, reit);
   }
 
   protected String color(){
       return "The prescription is blue";
     }
-  
+
     protected int priceToPay(){
       int price = getDrug().getPrice();
       return ((price/100)*25);
     }
-  
-    @Override 
+
+    @Override
     public String toString(){
       return ("Prescription ID: " + prescriptionID + "\n" +
              "Color of prescription: " + color() + "\n"  +
              "Price(75% discount): " + priceToPay() + "\n" +
+             "Doctor: " + doctor + "\n" +
              "Patient: " + patient + "\n" +
              "Re-it: " + reit);
     }

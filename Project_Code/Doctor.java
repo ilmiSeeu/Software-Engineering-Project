@@ -81,3 +81,32 @@ public class Doctor implements Comparable<Doctor> {
 
 
 }
+
+
+//------------------------------------------------Specialist------------------------------------------------
+
+
+class Specialist extends Doctor{
+
+    protected String controlID;
+
+    public Specialist(String name, String controlID){
+        super(name);
+        this.controlID = controlID;
+        writtenPrescriptions = new ArrayList<Prescriptions>();
+
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public String getID(){
+        return controlID;
+    }
+
+    public String toString(){
+        return (name + "\n" +
+                "ID: " + controlID);
+    }
+}
