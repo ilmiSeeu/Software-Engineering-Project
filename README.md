@@ -3,11 +3,11 @@ Group members: Ilmi, Yllhanaa, Armend
 
 
 
-####Introduction:
+#### Introduction:
 
 This project is a simulation of a doctor's system that allows for the creation and management of patients, doctors, drugs, and prescriptions. The system is implemented in Java and uses various data structures such as ArrayLists to store and manipulate the objects.
 
-####Classes and their functions:
+#### Classes and their functions:
 
 1. Doctor: This class represents a doctor and contains information such as the doctor's name and a list of prescriptions written by the doctor. It also has methods for adding prescriptions and comparing two doctors based on their names.
 
