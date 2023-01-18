@@ -24,3 +24,5 @@ This project is a simulation of a doctor's system that allows for the creation a
 4. Prescriptions: This is an abstract class that represents a prescription and contains information such as the associated drug, doctor, patient, and remaining reits. It also has a method for using a prescription and decreasing the remaining reits.
 
 - WhitePrescriptions, MilitaryPrescriptions, pPrescription and BluePrescriptions: These classes extend the Prescriptions class and provide implementation for the abstract
+
+5. DoctorSystem: This is the main class that runs the program and includes methods for performing various actions such as printing an overview of the system, creating new objects, using prescriptions, printing statistics, and writing data to a file.
