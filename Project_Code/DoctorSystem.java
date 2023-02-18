@@ -11,14 +11,14 @@ public class DoctorSystem {
      static private List<Patient> listOfPatient;
      static private List<Drug> listOfDrug;
      static private List<Doctor> listOfDoctor;
-     static private List<Prescriptions> listOfPrescriptions;
+     static private List<Prescription> listOfPrescriptions;
 
      public DoctorSystem(){
 
        listOfPatient = new ArrayList<Patient>();
        listOfDrug = new ArrayList<Drug>();
        listOfDoctor = new ArrayList<Doctor>();
-       listOfPrescriptions = new ArrayList<Prescriptions>();
+       listOfPrescriptions = new ArrayList<Prescription>();
      }
 
 
@@ -89,7 +89,7 @@ public class DoctorSystem {
 
                   //Hvis det skal bli resept objekter
                  }
-                 if(object.equals("Prescriptions")) {
+                 if(object.equals("Prescription")) {
 
                    int drugNum = Integer.parseInt(bits1[0]);
                    String doctroName = bits1[1];
@@ -140,7 +140,7 @@ public class DoctorSystem {
           System.out.println("You have 5 choices. Enter: 1/2/3/4/5:");
 
           while (selection != -1){
-               System.out.println("1: Print a complete overview of patients, doctors, drugs and prescriptions");
+               System.out.println("1: Print a complete overview of patients, doctors, drugs and Prescription");
                System.out.println("2: Creating and adding new objects to the system");
                System.out.println("3: Use a given prescription from the list to a patient (reit -1)");
                System.out.println("4: Print various forms of statistics");
@@ -190,7 +190,7 @@ public class DoctorSystem {
                     if (l.getWrittenPrescriptions().size() != 0){
                          System.out.println("No prescription");
                     } else{
-                         for (Prescriptions r : l.getWrittenPrescriptions()){
+                         for (Prescription r : l.getWrittenPrescriptions()){
                               System.out.println(r.toString());
                          }
                     }
@@ -212,7 +212,7 @@ public class DoctorSystem {
                     if (p.getPatientPrescriptions().size() == 0){
                          System.out.println("No prescription");
                     } else {
-                         for (Prescriptions r : p.getPatientPrescriptions()){
+                         for (Prescription r : p.getPatientPrescriptions()){
                               System.out.println(r.toString());
                          }
                     }
@@ -287,7 +287,7 @@ public class DoctorSystem {
           if (selection == 3){
                Scanner scanner = new Scanner(System.in);
 
-               // Prescriptions can only be given if patients exist
+               // Prescription can only be given if patients exist
                if (listOfPatient.size() == 0){
                     System.out.println("No existing patient");
                     System.out.println("Start by creating a patient first");
@@ -453,7 +453,7 @@ public class DoctorSystem {
                for (Patient p : listOfPatient){
                     if (p.getPatientID() == patId){
                          thisPat = p;
-                         for (Prescriptions r : thisPat.getPatientPrescriptions()){
+                         for (Prescription r : thisPat.getPatientPrescriptions()){
                               System.out.println(r);
                          }
                     }
@@ -464,7 +464,7 @@ public class DoctorSystem {
                     int presID = scanner.nextInt();
                     scanner.nextLine();
 
-                    for (Prescriptions r : thisPat.getPatientPrescriptions()){
+                    for (Prescription r : thisPat.getPatientPrescriptions()){
                          // Sjekker om resepten har flere reit
                          if (r.getId() == presID){
                               if (r.getReit() > 0){
@@ -487,7 +487,7 @@ public class DoctorSystem {
 
      public static void printStat(){
           if (listOfPrescriptions.size() == 0){
-               System.out.println("No existing prescriptions");
+               System.out.println("No existing Prescription");
           }
 
           // increments values
@@ -496,7 +496,7 @@ public class DoctorSystem {
           int totRegDrugs = 0;
 
           // Narcotic
-          for (Prescriptions r : listOfPrescriptions){
+          for (Prescription r : listOfPrescriptions){
                if (r.getDrug() instanceof Narcotic){
                     totNarDrugs += 1;
                }
@@ -508,7 +508,7 @@ public class DoctorSystem {
           }
 
           // Addictive
-          for (Prescriptions r : listOfPrescriptions){
+          for (Prescription r : listOfPrescriptions){
                if (r.getDrug() instanceof Addictive){
                     totAddDrugs += 1;
                }
@@ -519,7 +519,7 @@ public class DoctorSystem {
                System.out.println("There are " + totAddDrugs + " Addictive drugs");
           }
 
-          for (Prescriptions r : listOfPrescriptions){
+          for (Prescription r : listOfPrescriptions){
                if (r.getDrug() instanceof Regular){
                     totRegDrugs += 1;
                }
@@ -539,7 +539,7 @@ public class DoctorSystem {
                     continue;
                }
 
-               for(Prescriptions k : n.getWrittenPrescriptions()){
+               for(Prescription k : n.getWrittenPrescriptions()){
                     if(k.getDrug() instanceof Narcotic){
                          count++;
                     }}
@@ -592,7 +592,7 @@ public class DoctorSystem {
 
                myW.write("Prescription infomration (drugID,doctroName,patientID,type,evt.reit)");
 
-               for (Prescriptions n : listOfPrescriptions){
+               for (Prescription n : listOfPrescriptions){
                     Drug drug = n.getDrug();
                     int drugID = n.getId();
                     Doctor doctor = n.getDoctor();

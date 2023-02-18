@@ -3,11 +3,11 @@ import java.util.*;
 public class Doctor implements Comparable<Doctor> {
 
     public String name;
-    protected List<Prescriptions> writtenPrescriptions;
+    protected List<Prescription> writtenPrescriptions;
 
     public Doctor(String name){
         this.name = name;
-        writtenPrescriptions = new ArrayList<Prescriptions>();
+        writtenPrescriptions = new ArrayList<Prescription>();
     }
 
     public String getName() {
@@ -18,11 +18,11 @@ public class Doctor implements Comparable<Doctor> {
         this.name = name;
     }
 
-    public List<Prescriptions> getWrittenPrescriptions() {
+    public List<Prescription> getWrittenPrescriptions() {
         return writtenPrescriptions;
     }
 
-    public void addPrescription(Prescriptions r) {
+    public void addPrescription(Prescription r) {
         writtenPrescriptions.add(r);
     }
 
@@ -93,7 +93,7 @@ class Specialist extends Doctor{
     public Specialist(String name, String controlID){
         super(name);
         this.controlID = controlID;
-        writtenPrescriptions = new ArrayList<Prescriptions>();
+        writtenPrescriptions = new ArrayList<Prescription>();
 
     }
 

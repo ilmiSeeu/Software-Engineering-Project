@@ -6,14 +6,14 @@ public class Patient {
     private String birthDate;
     private static int counter;
     private int patientID;
-    private List<Prescriptions> prescriptions;
+    private List<Prescription> Prescription;
 
 
     public Patient(String name, String birthDate){
          this.name = name;
          this.birthDate = birthDate;
          patientID = counter++;
-         prescriptions = new ArrayList<Prescriptions>();
+         Prescription = new ArrayList<Prescription>();
 
     }
 
@@ -29,13 +29,13 @@ public class Patient {
          return patientID;
     }
 
-    public List<Prescriptions> getPatientPrescriptions(){
-         return prescriptions;
+    public List<Prescription> getPatientPrescriptions(){
+         return Prescription;
     }
 
 
-    public void addPrescription(Prescriptions r){
-        prescriptions.add(r);
+    public void addPrescription(Prescription r){
+        Prescription.add(r);
     }
 
 
